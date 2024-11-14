@@ -27,7 +27,7 @@ app.post("/search", async (req, res) => {
       });
       res.render("index.ejs", { 
         content: JSON.stringify(result.data.location.name) , 
-        temp : JSON.stringify(result.data.current.temp_c)});
+        temperature : JSON.stringify(result.data.current.temp_c)});
     } catch (error) {
       res.render("index.ejs", { content: JSON.stringify(error.response.data) });
     }
