@@ -1,0 +1,64 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+    padding-left: 20px;
+}
+header input {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+header button {
+    padding: 10px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.searchbar{
+    align-self: center;
+    padding-right: 20px;
+}
+header button:hover {
+    background: #004494;
+}
+
+main {
+    padding: 20px;
+}
+
+#weather-info {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#location {
+    font-size: 24px;
+}
+
+#temperature {
+    font-size: 20px;
+}
+
+#description {
+    font-size: 16px;
+}
