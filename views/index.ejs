@@ -3,30 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>findweather</title>
+    <title>AeroSphere</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="/styles/style.css" >
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <script src="/index.js"></script>
 </head>
 <body>
-    <!--Header-->
-    <header>
-        <h1>findweather</h1>
-        <form action="/search" method="post">
-            <div class="searchbar">
-                <input type="text" id="search-bar" placeholder="Enter a city" name="location">
-                <button type="submit">Search</button>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">AeroSphere</div>
+            <div class="status-card">
+                <form action="/search" method="post">
+                    <div class="searchbar">
+                        <input 
+                            id="search-box" 
+                            type="text" 
+                            placeholder="Enter a city" 
+                            name="placedetails" 
+                            required>
+                        <button id="search-button" type="submit">Search</button>
+                    </div>
+                </form>
             </div>
-        </form>
-        
-        
-    </header>
-    <main>
-        <div id="weather-info">
-            <h2 id="location"><%= content %></h2>
-            <p id="temperature"> <%= temp %>&deg;C</p>
-            <p id="description"></p>
-        </div>
-    </main>
+            <div class="status-card">
+                <h4></h4>
+                <div class="choices">
+                    <div id="current">
+                        <input type="radio" class="option" id="Current" value="A" name="question" >
+                        <label for="Current" class="cursor">Current</label>
+                    </div>
+                    <div id="forecast">
+                        <input type="radio" class="option" value="B" id="Forecast" name="question">
+                        <label for="Forecast" class="cursor">Forecast</label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            
+            <% if (location) { %>
+                <header class="header">
+                    <div class="location">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        </svg>
+                        <p><%= location %></p>
+                    </div>
+                </header>
+            <% } %>
+
+            <% if (currenttemp) { %>
+                <div class="temperature">
+                    <p><%= currenttemp %> °C</p>
+                </div>
+            <% } %>
+
+            <!-- Display error message -->
+            <% if (content) { %>
+                <div class="weather-condition">
+                    <p><strong> <%= content %></strong></p>
+                </div>
+            <% } %>
+
+            <!-- Placeholder for weather condition -->
+            
+
+            <!-- Placeholder for forecast -->
+            <div class="forecast">
+                <div class="forecast-day">
+                    <div class="day-name">Day</div>
+                    <div class="day-temp">Temperature</div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
