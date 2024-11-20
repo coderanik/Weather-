@@ -1,149 +1,181 @@
-:root {
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.1);
-}
-
-* {
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 2rem;
-}
-
-.dashboard {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    min-height: 600px;
-    position: relative;
-}
-
-.sidebar {
-    background: var(--glass-bg);
-    border-right: 1px solid var(--glass-border);
-    padding: 2rem;
-}
-
-.searchbar{
-    display: flex;
-    flex-direction:column ;
-    gap: 10px;
-}
-
-#search-box {
-    width: 185px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.253);
-    border: 0;
-    padding-left: 10px;
-}
-::placeholder{
-    color:whitesmoke ;
-    padding-left: 5px;
-}
-
-#search-button {
-    padding: 10px;
-    background:#1a1a1a;
+    font-family: Arial, sans-serif;
+    background-color: #1e293b;
     color: white;
-    border: none;
-    cursor: pointer;
-    align-self: center;
-    border-radius: 10px;
 }
-.choices{
-    display: flex;
-    flex-direction: column;
-
+.container {
+    margin: 0 auto;
 }
-.cursor{
-    cursor: pointer;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-.status-card {
-    background: var(--glass-bg);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.main-content {
-    padding: 2rem;
-}
-
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    padding: 10px 50px; /* Add some horizontal padding */
+    height: 60px; /* Define a fixed height for the header *//* Example background color */
+    background-color: #526D82;
 }
 
-.location {
+.logo {
+    position: relative; /* Make the container a positioning context */
+    display: inline-block; /* Ensure proper layout */
+}
+
+.logo-circle {
+    width: 50px; /* Circle width */
+    height: 50px; /* Circle height */
+    background-color: #7cB9e8; /* Example color */
+    border-radius: 50%; /* Make it a circle */
+    position: relative; /* Positioning for the circle */
+    z-index: 1; /* Keep the circle behind the text */
+    margin-left: 30px;
+}
+
+.logo-text {
+    position: absolute; /* Absolute positioning */
+    top: 10px; /* Adjust the text position vertically */
+    left: 50%; /* Center horizontally relative to the circle */
+    transform: translateX(-50%); /* Precisely center the text */
+    color: #fff; /* Text color (white for contrast) */
+    font-size: 20pxpx; /* Adjust text size */
+    text-align: center; /* Center align the text */
+    z-index: 2; /* Bring the text above the circle */
+    align-self: center;
+    padding-top: 5px;
+}
+
+
+.search-bar{
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #9db2df;
+    color: white;
+}
+
+.search-bar ::placeholder{
+    color: white;
+}
+.search-bar::before {
+    content: "🔍";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.content {
+    margin: 50px;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+#box1{
+    display: flex;
+    justify-content: center;
+}
+.weather-card {
+    background-color: rgba(100, 116, 139, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 15px;
+}
+.air-quality-card{
+    background-color: rgba(100, 116, 139, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    margin: 15px;
 }
 
+.air-quality-card > h2 {
+    padding: 0;
+}
+.location {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 .temperature {
-    font-size: 6rem;
-    font-weight: 500;
-    margin: 2rem 0;
+    font-size: 64px;
+    font-weight: 300;
 }
-
-.weather-condition {
-    font-size: 2.5rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 2rem;
+.condition {
+    font-size: 24px;
+    color: #cbd5e1;
 }
-
-.forecast {
+.air-quality-card h2 {
+    margin-top: 0;
+}
+.air-quality-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.air-quality-index {
+    width: 100px;
+    height: 100px;
+    border: 4px solid #facc15;
+    border-radius: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.air-quality-description {
+    max-width: 60%;
+    padding: 10px;
+}
+.forecast-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    margin-top: 3rem;
+    gap: 20px;
 }
-
-.forecast-day {
+.forecast-item {
+    background-color: rgba(100, 116, 139, 0.3);
+    border-radius: 10px;
+    height: 150px;
+}
+footer {
     text-align: center;
+    padding: 20px 0;
+    color: #94a3b8;
 }
-
-.recent-searches {
-    display: flex;
-    gap: 1rem;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
+ @media (max-width: 768px) {
+    .forecast-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
+@media (max-width: 480px) {
+    .forecast-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #box1{
+        display: flex;
+        flex-direction: column;
+    }
+    .weather-card , .air-quality-card{
+        width: 250px;
+    }
+    .search-bar{
+        width: 100px;
+    }
+    
 
-.search-card {
-    background: var(--glass-bg);
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-}
 
-.download-btn {
-    background: var(--glass-bg);
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
+
 }
