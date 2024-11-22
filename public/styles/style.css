@@ -78,6 +78,7 @@ header {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    
 }
 #box1{
     display: flex;
@@ -93,63 +94,74 @@ header {
     width: 400px;
     margin: 15px;
 }
-.air-quality-card{
+.other-details-card{
     background-color: rgba(100, 116, 139, 0.3);
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
     margin-bottom: 20px;
     width: 400px;
     margin: 15px;
-}
-
-.air-quality-card > h2 {
-    padding: 0;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #cbd5e1;
 }
 .location {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #b95d5d;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
 }
 .temperature {
     font-size: 64px;
     font-weight: 300;
 }
 .condition {
-    font-size: 24px;
+    font-size: 20px;
+}
+.textedit{
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
     color: #cbd5e1;
 }
-.air-quality-card h2 {
-    margin-top: 0;
-}
-.air-quality-content {
+#box2{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.air-quality-index {
-    width: 100px;
-    height: 100px;
-    border: 4px solid #facc15;
-    border-radius: 80%;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
-    font-weight: bold;
 }
-.air-quality-description {
-    max-width: 60%;
-    padding: 10px;
+#box2 h2{
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 30px;
 }
 .forecast-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    text-align: center;
+    align-content: center;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #cbd5e1;
+}
+.forecast-date h3 {
+    text-align: center;
+    color: rgb(182, 100, 100);
 }
 .forecast-item {
     background-color: rgba(100, 116, 139, 0.3);
     border-radius: 10px;
-    height: 150px;
+    height: 210px;
+    width: 200px;
+    
 }
+
 footer {
     text-align: center;
     padding: 20px 0;
@@ -161,12 +173,25 @@ footer {
     }
 }
 @media (max-width: 480px) {
+    .content{
+        padding: 10px;
+    }
     .forecast-grid {
         grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+        gap: 10px;
     }
     #box1{
         display: flex;
         flex-direction: column;
+        padding-left: 10px;
+    }
+    #box2{
+        padding: 10px;
+        padding-left: 20px;
+    }
+    .forecast-date{
+        text-align: center;
     }
     .weather-card , .air-quality-card{
         width: 250px;

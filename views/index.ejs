@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AeroSphere</title>
-    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon-circle.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <script src="/index.js"></script>
 </head>
@@ -17,48 +20,52 @@
             </div>
             <form action="/search" method="post">
                 <div class="search-bar">
-                    <input type="text" placeholder="Enter the city">
+                    <input type="text" placeholder="Enter the city" name="placedetails">
                 </div>
             </form>
         </header>
         
         <main class="content">
             <div id="box1">
-                <% if(location) { %>
                 <div class="weather-card">
                     <div>
-                        <div class="location">📍 <%= location %></div>
-                        <div class="temperature">27°</div>
-                        <div class="condition">Fog</div>
+                        <div class="location">📍<strong><%= location %></strong></div>
+                        <div class="temperature"><%= temp %></div>
+                        <p class="textedit">Maximum Temp : <strong><%= maxTemp %></strong> </p>
+                        <p class="textedit">Minimum Temp : <strong><%= minTemp %> </strong> </p>
                     </div>
                 </div>
-                <% } %>
-                <div class="air-quality-card">
-                    <p>Air Quality Index</p>
-                    <div class="air-quality-content">
-                        <div class="air-quality-index">104</div>
-                        <div class="air-quality-description">
-                            <p>Moderate</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu pharetra leo. Nunc tincidunt dui ante id luctus.</p>
-                        </div>
-                    </div>
+                <div class="other-details-card">
+                    <div class="condition">Weather Conditions : <strong><%= condition %></strong></div>
+                    <p>Pressure : <strong> <%= pressure %> </strong> </p>
+                    <p>Humidity : <strong><%= humidity %></strong></p>
+                    <p>Visibility : <strong><%= visibility %></strong></p>
+                    <p>Wind Speed : <strong><%= windspeed %></strong></p>
                 </div>    
             </div>
             <div id="box2">
-                <div class="forecast-grid">
-                    <div class="forecast-item"></div>
-                    <div class="forecast-item"></div>
-                    <div class="forecast-item"></div>
-                    <div class="forecast-item"></div>
-                    <div class="forecast-item"></div>
-                    <div class="forecast-item"></div>
-                </div>
+                <h2>Forecast</h2>
+                <% for (const [date, times] of Object.entries(forecastData)) { %>
+                    <div class="forecast-date">
+                        <h3><%= date %></h3>
+                        <div class="forecast-grid">
+                            <% times.forEach(item => { %>
+                                <div class="forecast-item">
+                                    <h4><strong><%= item.time %></strong></h4>
+                                    <p>Temp: <%= item.temp %>°C</p>
+                                    <p>Feels Like: <%= item.feels_like %>°C</p>
+                                    <p>Min Temp: <%= item.temp_min %>°C</p>
+                                    <p>Max Temp: <%= item.temp_max %>°C</p>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% } %>
             </div>
         </main>
     </div>
         <footer>
             © AeroSphere, 2024
         </footer> 
-
 </body>
 </html>
